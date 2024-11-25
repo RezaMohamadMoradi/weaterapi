@@ -1,0 +1,28 @@
+﻿<!-- Views/Weather/Index.cshtml -->
+@model Web_mvc_WeaterApi.Models.WeatherInfo 
+
+@{
+    ViewData["Title"] = "Weather Information";
+    var city = ViewBag.City ?? "Tehran";  // مقدار پیش‌فرض تهران
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="get">
+    <input type="text" name="city" placeholder="Enter city" value="@city" />
+    <button type="submit">Get Weather</button>
+</form>
+
+@if (Model != null)
+{
+    <div>
+        <h3>@Model.Name</h3>
+        <p>Temperature: @Model.Main.Temp °C</p>
+        <p>Humidity: @Model.Main.Humidity %</p>
+        <p>Weather: @Model.Weather[0].Description</p>
+    </div>
+}
+else
+{
+    <p>@ViewBag.Error</p>
+}

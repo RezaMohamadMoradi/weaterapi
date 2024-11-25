@@ -1,0 +1,6 @@
+@weaterapi_HostAddress = http://localhost:5096
+
+GET {{weaterapi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
